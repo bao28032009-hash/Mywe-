@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Chúc Mừng</title>
+    <style>
+        /* BODY */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* Căn ngang */
+            align-items: center;     /* Căn dọc */
+            flex-direction: column;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* TIÊU ĐỀ */
+        h1 {
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 0 0 15px #ff3366;
+        }
+
+        /* FORM + NÚT */
+        form {
+            text-align: center;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            background-color: #ff3366;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff3366;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff0055;
+            transform: scale(1.05);
+        }
+
+        /* TRÁI TIM */
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: heartFly linear infinite;
+        }
+
+        @keyframes heartFly {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* CHỮ RƠI */
+        .fall-text {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            animation: textFall linear infinite;
+            white-space: nowrap;
+            text-shadow: 0 0 10px #ff0055;
+        }
+
+        @keyframes textFall {
+            0% {
+                transform: translateY(-90vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TIÊU ĐỀ Ở GIỮA -->
+    <h1>💖chúc mừng sinh nhật sếp💖</h1>
+
+    <!-- FORM NÚT CHUYỂN TRANG -->
+    <form action="https://panbap.github.io/Rainlovex/index.html?id=eyJtc2ciOiJDaMO6YyBt4burbmcgc2luaCBuaOG6rXQgc%2BG6v3AgOikpfENow7pjIHPhur9wIHR14buVaSBt4bubaSBjaMSDbSBuZ29hbiBo4buNYyBnaeG7j2kgOikpKXxDaMO6YyBz4bq%2FcCBuZ8OgeSBjw6BuZyB4aW5rIGjGoW4sIGR0aHcgaMahbiA6KSkiLCJnaWYiOiIuL2Fzc2V0cy9oMS5naWYiLCJtdXNpYyI6Ii4vYXNzZXRzLzEubXAzIiwicmFpblRleHQiOiJIYXBweSBicml0aGRheSIsInJhaW5Db2xvciI6IiNmNTg0YjcifQ%3D%3D" method="get">
+        <button type="submit">bấm đây nè sếp</button>
+    </form>
+
+<script>
+    /* ====== HIỆU ỨNG TRÁI TIM ====== */
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤"; // bạn có thể đổi thành 💗 💞 💘
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 7000);
+    }
+    setInterval(createHeart, 300);
+
+    /* ====== CHỮ RƠI – CHỈNH THÔNG ĐIỆP TẠI ĐÂY ====== */
+    const messages = [
+        "Chúc sếp luôn hạnh phúc 🌸",
+        "Mỉm cười mỗi ngày 😊",
+        "Yêu thương ngập tràn ❤️",
+        "Mọi điều tốt đẹp sẽ đến ✨",
+        "Chúc sếp vui vẻ và thành công 💖",
+    ];
+
+    function createFallingText() {
+        const text = document.createElement("div");
+        text.className = "fall-text";
+        text.innerText = messages[Math.floor(Math.random() * messages.length)];
+        text.style.left = Math.random() * 90 + "vw";
+        text.style.animationDuration = Math.random() * 4 + 5 + "s";
+        document.body.appendChild(text);
+
+        setTimeout(() => text.remove(), 9000);
+    }
+    setInterval(createFallingText, 700);
+</script>
+
+</body>
+</html>
